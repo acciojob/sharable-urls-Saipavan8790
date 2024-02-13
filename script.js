@@ -1,16 +1,11 @@
 // your code here
-const form = document.getElementById('urlForm');
-const urlText = document.getElementById('url');
-
-form.addEventListener('submit', function(event) {
-	event.preventDefault(); // Prevent form submission
-
-	// Get input field values
-	const name = document.getElementById('name').value;
-	const year = document.getElementById('year').value;
-
-	// Update url text with query string
-	urlText.textContent = `https://localhost:8080/?name=${name}&year=${year}`;
-});
-
-
+document.getElementById("urlForm").addEventListener("submit", function(event) {
+            event.preventDefault(); 
+            
+            var name = document.getElementById("name").value;
+            var year = document.getElementById("year").value;
+            
+            var queryString = "?name=" + encodeURIComponent(name) + "&year=" + encodeURIComponent(year);
+            
+            document.getElementById("url").textContent = "https://localhost:8080/" + queryString;
+        });
